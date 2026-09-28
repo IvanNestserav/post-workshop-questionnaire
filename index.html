@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Post-Workshop Questionnaire | Uplift</title>
+  <meta name="description" content="Share what worked in the workshop and what you would like to learn next.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{--ink:#3d3d3d;--blue:#2c5f7c;--teal:#5ba6bc;--gold:#d5ae6d;--yellow:#fff2a9;--cream:#fff9e9;--pale:#e8f4f8;--focus:#0a6285}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:radial-gradient(circle at 50% 10%,#fffdf5 0,#fff8e6 52%,#fff4d8 100%);color:var(--ink);font:16px/1.65 "Open Sans",Arial,sans-serif}
+    .shell{max-width:790px;margin:24px auto 48px;background:#fffdf7;border:3px solid var(--gold);border-radius:19px;box-shadow:0 12px 35px rgba(62,73,61,.12);overflow:hidden}
+    .hero{position:relative;background:linear-gradient(120deg,#2c5f7c,#59a5b9);color:#fff;text-align:center;padding:50px 28px 65px}
+    .hero:after{content:"";position:absolute;bottom:-1px;left:-2%;width:104%;height:25px;background:#fffdf7;border-radius:50% 50% 0 0/100% 100% 0 0}
+    .eyebrow{font-size:.78rem;letter-spacing:.17em;text-transform:uppercase;font-weight:700;color:#d9eff2;margin:0 0 5px}
+    h1{font:normal clamp(2.5rem,6vw,3.5rem)/1.06 "Patrick Hand",cursive;color:#fff;margin:0;text-shadow:0 2px 3px rgba(0,0,0,.2)}
+    .hero p:last-child{margin:14px auto 0;max-width:560px;font-size:1.12rem}
+    .intro{padding:25px 30px 30px;background:linear-gradient(#fffdf7,#fff2b8);border-bottom:2px dashed var(--gold)}
+    .intro p{margin:0 0 15px}
+    form{padding:0 30px 30px}
+    fieldset{border:0;border-bottom:2px dashed #e6c991;margin:0;padding:30px 0 32px;min-width:0}
+    fieldset:last-of-type{border-bottom:0}
+    legend{padding:0;width:100%}
+    .section-heading{display:flex;align-items:center;gap:14px;padding-top:12px;color:var(--blue);font:normal 1.8rem/1.2 "Patrick Hand",cursive}
+    .number{display:inline-grid;place-items:center;flex:none;width:43px;height:43px;border-radius:50%;background:#ffdb42;border:2px solid var(--gold);box-shadow:0 2px 0 rgba(74,62,31,.22);font:700 1.05rem "Open Sans",sans-serif}
+    .hint{margin:8px 0 20px 57px;color:#646464;font:italic .98rem Georgia,serif}
+    .prompt{font-weight:700;margin:20px 0 9px}
+    .choice-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px 17px}
+    .choice-grid.three{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .choice{display:flex;align-items:flex-start;gap:9px;cursor:pointer;padding:10px 11px;border:1px solid #e5d3b2;border-radius:10px;background:#fff;line-height:1.4;min-height:48px;transition:border-color .18s,background .18s,box-shadow .18s}
+    .choice:hover{border-color:var(--teal);background:#f7fcfd}
+    .choice:has(input:checked){border-color:var(--teal);background:#eaf7f8;box-shadow:inset 0 0 0 1px var(--teal)}
+    input[type="checkbox"],input[type="radio"]{accent-color:var(--blue);width:18px;height:18px;flex:none;margin:1px 0 0}
+    label.inline{display:block;font-weight:700;margin:18px 0 7px}
+    input[type="text"],textarea{display:block;width:100%;font:inherit;color:var(--ink);background:#fff;border:2px solid #d2ae78;border-radius:10px;padding:12px 14px;outline:0}
+    textarea{resize:vertical;min-height:105px}
+    .illustrated-answer{display:grid;grid-template-columns:minmax(0,1fr) 175px;gap:20px;align-items:center}
+    .illustrated-answer>div{min-width:0}
+    .section-art{display:block;width:100%;height:auto;object-fit:contain;justify-self:center}
+    .section-art.heart{max-width:140px;max-height:205px}
+    input[type="text"]:focus,textarea:focus,.choice:focus-within{border-color:var(--focus);box-shadow:0 0 0 3px rgba(10,98,133,.18)}
+    .actions{text-align:center;padding:10px 0 8px}
+    button{border:0;border-radius:12px;background:linear-gradient(120deg,#2c5f7c,#4e9ab1);color:#fff;cursor:pointer;padding:13px 43px;font:normal 1.6rem "Patrick Hand",cursive;box-shadow:0 6px 20px rgba(44,95,124,.3)}
+    button:hover{filter:brightness(1.06)}
+    button:disabled{cursor:wait;opacity:.7}
+    .send-error{color:#a33131;font-weight:700;min-height:1.5em;margin:12px auto 0;max-width:530px}
+    .thank-you{min-height:420px;padding:70px 28px;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(150deg,#fffdf7,#fff2b8)}
+    .thank-you h1{color:var(--blue);text-shadow:none;margin:0 0 14px}
+    .thank-you p{font-size:1.08rem;max-width:480px;margin:0}
+    [hidden]{display:none!important}
+    button:focus-visible,a:focus-visible{outline:3px solid var(--focus);outline-offset:3px}
+    .footer{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:16px 30px;background:#f8edcf;color:#435762;font-size:.8rem}
+    @media(max-width:640px){.shell{margin:0;border:0;border-radius:0}.hero{padding:43px 18px 58px}.intro{padding:22px 20px}form{padding:0 20px 25px}.choice-grid,.choice-grid.three{grid-template-columns:1fr}.illustrated-answer{grid-template-columns:1fr}.section-art{max-width:175px;margin:0 auto}.hint{margin-left:0}.section-heading{font-size:1.65rem}.footer{padding:16px 20px}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.choice{transition:none}}
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <header class="hero">
+      <p class="eyebrow">Uplift · Your feedback shapes what comes next</p>
+      <h1>Post-Workshop Questionnaire</h1>
+      <p>Tell us about your experience and what you would like to explore next.</p>
+    </header>
+    <div class="intro"><p>Thank you for joining the workshop. Your feedback helps us improve future sessions. You may skip any question you do not want to answer.</p></div>
+    <form id="workshopForm" action="https://formsubmit.co/ivannestserav.msw@gmail.com" method="POST">
+      <input type="hidden" name="_subject" value="Uplift post-workshop questionnaire response">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_captcha" value="false">
+      <fieldset>
+        <legend><span class="section-heading"><span class="number">1</span><span>Which workshop did you attend?</span></span></legend>
+        <p class="hint">This helps us understand feedback from different sessions.</p>
+        <label class="inline" for="workshop">Workshop topic or title (optional)</label>
+        <input id="workshop" name="Workshop attended" type="text" maxlength="180" placeholder="Workshop topic or title">
+        <label class="inline" for="date">Date attended (optional)</label>
+        <input id="date" name="Date attended" type="text" maxlength="80" placeholder="For example, September 28, 2026">
+      </fieldset>
+      <fieldset>
+        <legend><span class="section-heading"><span class="number">2</span><span>How was the workshop for you?</span></span></legend>
+        <p class="hint">Choose the answer that fits best for each question.</p>
+        <p class="prompt" id="usefulLabel">How useful was the workshop?</p>
+        <div class="choice-grid" role="group" aria-labelledby="usefulLabel">
+          <label class="choice"><input type="radio" name="Usefulness" value="Very useful"><span>Very useful</span></label>
+          <label class="choice"><input type="radio" name="Usefulness" value="Somewhat useful"><span>Somewhat useful</span></label>
+          <label class="choice"><input type="radio" name="Usefulness" value="Not very useful"><span>Not very useful</span></label>
+          <label class="choice"><input type="radio" name="Usefulness" value="Not sure yet"><span>Not sure yet</span></label>
+        </div>
+        <p class="prompt" id="paceLabel">How was the pace?</p>
+        <div class="choice-grid three" role="group" aria-labelledby="paceLabel">
+          <label class="choice"><input type="radio" name="Pace" value="Too fast"><span>Too fast</span></label>
+          <label class="choice"><input type="radio" name="Pace" value="About right"><span>About right</span></label>
+          <label class="choice"><input type="radio" name="Pace" value="Too slow"><span>Too slow</span></label>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend><span class="section-heading"><span class="number">3</span><span>What was most helpful?</span></span></legend>
+        <p class="hint">Select all that apply. You can add something else, too.</p>
+        <div class="choice-grid">
+          <label class="choice"><input type="checkbox" name="Helpful parts" value="Information shared"><span>Information shared</span></label>
+          <label class="choice"><input type="checkbox" name="Helpful parts" value="Examples or demonstrations"><span>Examples or demonstrations</span></label>
+          <label class="choice"><input type="checkbox" name="Helpful parts" value="Hands-on practice"><span>Hands-on practice</span></label>
+          <label class="choice"><input type="checkbox" name="Helpful parts" value="Questions and answers"><span>Questions and answers</span></label>
+          <label class="choice"><input type="checkbox" name="Helpful parts" value="Group discussion"><span>Group discussion</span></label>
+          <label class="choice"><input type="checkbox" name="Helpful parts" value="Resources to take home"><span>Resources to take home</span></label>
+          <label class="choice"><input type="checkbox" name="Helpful parts" value="Something else"><span>Something else</span></label>
+        </div>
+        <label class="inline" for="otherHelpful">What else was helpful? (optional)</label>
+        <input id="otherHelpful" name="Other helpful part" type="text" maxlength="180" placeholder="Tell us what helped">
+        <div class="illustrated-answer">
+          <div><label class="inline" for="learned">What is one thing you learned or will use? (optional)</label><textarea id="learned" name="One thing learned or will use" maxlength="1000" placeholder="One thing I learned..."></textarea></div>
+          <img class="section-art" src="https://ivannestserav.github.io/Uplift/img_writing.png" width="1536" height="1024" loading="lazy" decoding="async" alt="Illustration of a person writing">
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend><span class="section-heading"><span class="number">4</span><span>What could we improve?</span></span></legend>
+        <p class="hint">Honest suggestions help us make the next workshop better.</p>
+        <label class="inline" for="improve">What would you change or add? (optional)</label>
+        <textarea id="improve" name="What to change or add" maxlength="1000" placeholder="I would change or add..."></textarea>
+        <label class="inline" for="access">Was there anything that made it difficult to participate? (optional)</label>
+        <textarea id="access" name="Participation barriers" maxlength="1000" placeholder="For example, timing, language, materials, or access needs"></textarea>
+      </fieldset>
+      <fieldset>
+        <legend><span class="section-heading"><span class="number">5</span><span>What would you like next?</span></span></legend>
+        <p class="hint">Tell us what you want to hear, study, or practice in a future workshop.</p>
+        <label class="inline" for="future">Future topics or questions (optional)</label>
+        <textarea id="future" name="Future topics or questions" maxlength="1000" placeholder="I would like to learn more about..."></textarea>
+        <p class="prompt" id="formatLabel">How would you like to participate next time? Select all that apply.</p>
+        <div class="choice-grid three" role="group" aria-labelledby="formatLabel">
+          <label class="choice"><input type="checkbox" name="Future formats" value="In-person workshop"><span>In-person workshop</span></label>
+          <label class="choice"><input type="checkbox" name="Future formats" value="Online workshop"><span>Online workshop</span></label>
+          <label class="choice"><input type="checkbox" name="Future formats" value="Hands-on practice"><span>Hands-on practice</span></label>
+          <label class="choice"><input type="checkbox" name="Future formats" value="Small-group discussion"><span>Small-group discussion</span></label>
+          <label class="choice"><input type="checkbox" name="Future formats" value="Question-and-answer session"><span>Question-and-answer session</span></label>
+          <label class="choice"><input type="checkbox" name="Future formats" value="One-on-one help"><span>One-on-one help</span></label>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend><span class="section-heading"><span class="number">6</span><span>Anything else you would like to share?</span></span></legend>
+        <p class="hint">Your thoughts are welcome.</p>
+        <div class="illustrated-answer">
+          <div><label class="inline" for="anything">Your comments (optional)</label><textarea id="anything" name="Additional comments" maxlength="1000" placeholder="Share your thoughts here..."></textarea></div>
+          <img class="section-art heart" src="https://ivannestserav.github.io/Uplift/img_heart.png" width="1024" height="1536" loading="lazy" decoding="async" alt="Illustration of a person holding a heart">
+        </div>
+      </fieldset>
+      <div class="actions"><button type="button" id="sendButton">Send my feedback</button><p id="sendError" class="send-error" role="alert" aria-live="polite"></p></div>
+    </form>
+    <footer class="footer"><span>Thank you for helping improve future workshops.</span><span>Ivan Nestserav&nbsp; | &nbsp;1st Ed. 09/2026 ©</span></footer>
+    <section id="thankYou" class="thank-you" tabindex="-1" hidden><h1>Thank you for participating!</h1><p>Your feedback will help improve future workshops.</p></section>
+  </main>
+  <script>
+    function buildSubmission(formData) {
+      const one = (name) => String(formData.get(name) || '').trim();
+      const many = (name) => formData.getAll(name).map(value => String(value).trim()).filter(Boolean);
+      const helpfulChoices = many('Helpful parts');
+      const helpful = helpfulChoices.filter(value => value !== 'Something else');
+      const otherHelpful = one('Other helpful part');
+      if (otherHelpful) helpful.push('Something else: ' + otherHelpful);
+      else if (helpfulChoices.includes('Something else')) helpful.push('Something else (no detail entered)');
+      const shown = (value) => value || '(not answered)';
+      return {
+        _subject: 'Uplift post-workshop questionnaire response', _template: 'table', _captcha: 'false',
+        'Workshop attended': shown(one('Workshop attended')),
+        'Date attended': shown(one('Date attended')),
+        'Usefulness': shown(one('Usefulness')),
+        'Pace': shown(one('Pace')),
+        'Helpful parts': shown(helpful.join('; ')),
+        'One thing learned or will use': shown(one('One thing learned or will use')),
+        'What to change or add': shown(one('What to change or add')),
+        'Participation barriers': shown(one('Participation barriers')),
+        'Future topics or questions': shown(one('Future topics or questions')),
+        'Future formats': shown(many('Future formats').join('; ')),
+        'Additional comments': shown(one('Additional comments'))
+      };
+    }
+    const form = document.getElementById('workshopForm');
+    const sendButton = document.getElementById('sendButton');
+    const sendError = document.getElementById('sendError');
+    const otherHelpfulInput = document.getElementById('otherHelpful');
+    const otherHelpfulChoice = form.querySelector('input[name="Helpful parts"][value="Something else"]');
+    otherHelpfulInput.addEventListener('input', () => { if (otherHelpfulInput.value.trim()) otherHelpfulChoice.checked = true; });
+    async function sendAnswers() {
+      if (sendButton.disabled) return;
+      sendError.textContent = '';
+      sendButton.disabled = true;
+      sendButton.textContent = 'Sending...';
+      const answers = buildSubmission(new FormData(form));
+      try {
+        const response = await fetch(form.action.replace('https://formsubmit.co/', 'https://formsubmit.co/ajax/'), {
+          method: 'POST', headers: {'Content-Type': 'application/json', 'Accept': 'application/json'}, body: JSON.stringify(answers)
+        });
+        const result = await response.json();
+        if (!response.ok || (result.success !== true && result.success !== 'true')) throw new Error('The form service did not confirm the submission.');
+        const thankYou = document.getElementById('thankYou');
+        document.querySelector('.shell').replaceChildren(thankYou);
+        thankYou.hidden = false;
+        thankYou.focus();
+        window.scrollTo(0, 0);
+      } catch (error) {
+        sendError.textContent = 'Your feedback could not be sent. Please try again.';
+        sendButton.disabled = false;
+        sendButton.textContent = 'Send my feedback';
+      }
+    }
+    sendButton.addEventListener('click', sendAnswers);
+    form.addEventListener('submit', (event) => { event.preventDefault(); sendAnswers(); });
+  </script>
+</body>
+</html>
